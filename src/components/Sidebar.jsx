@@ -1,3 +1,5 @@
+import PropTypes from "prop-types"; // ✅ Import PropTypes
+
 const Slidebar = ({ selectedTab, setSelectedTab }) => {
   return (
     <div
@@ -21,14 +23,12 @@ const Slidebar = ({ selectedTab, setSelectedTab }) => {
       <ul className="nav nav-pills flex-column mb-auto">
         <li
           className="nav-item"
-          onClick={() => {
-            setSelectedTab("Home");
-          }}
+          onClick={() => setSelectedTab("Home")}
         >
           <a
             href="#"
             className={`nav-link text-white ${
-              selectedTab === "Home" ? "active" : " "
+              selectedTab === "Home" ? "active" : ""
             }`}
             aria-current="page"
           >
@@ -42,15 +42,11 @@ const Slidebar = ({ selectedTab, setSelectedTab }) => {
             Home
           </a>
         </li>
-        <li
-          onClick={() => {
-            setSelectedTab("Create Post");
-          }}
-        >
+        <li onClick={() => setSelectedTab("Create Post")}>
           <a
             href="#"
             className={`nav-link text-white ${
-              selectedTab === "Create Post" ? "active" : " "
+              selectedTab === "Create Post" ? "active" : ""
             }`}
           >
             <svg
@@ -121,6 +117,12 @@ const Slidebar = ({ selectedTab, setSelectedTab }) => {
       </div>
     </div>
   );
+};
+
+// ✅ Add PropTypes for validation
+Slidebar.propTypes = {
+  selectedTab: PropTypes.string.isRequired,
+  setSelectedTab: PropTypes.func.isRequired,
 };
 
 export default Slidebar;
