@@ -1,5 +1,4 @@
 import { createContext, useReducer } from "react";
-import PropTypes from "prop-types";
 
 const DEFAULT_POST_LIST = [
   {
@@ -20,19 +19,17 @@ const DEFAULT_POST_LIST = [
   },
 ];
 
-// Create Context
-// eslint-disable-next-line react-refresh/only-export-components
-export const PostList = createContext({
+export const PostListData = createContext({
   postList: [],
   addPost: () => {},
   deletePost: () => {},
 });
 
-// Reducer Function
-
 const postListReducer = (currPostList, action) => {
   let newPostList = currPostList;
-  if (action.type === "DELETE_POST")
+  if (action.type === "ADD_POST") {
+    newPostList = [action.payload, ...currPostList];
+  } else if (action.type === "DELETE_POST")
     newPostList = currPostList.filter(
       (post) => post.id !== action.payload.postId
     );
@@ -46,7 +43,19 @@ const PostListProvider = ({ children }) => {
     DEFAULT_POST_LIST
   );
 
-  const addPost = () => {};
+  const addPost = (userId, postTitle, postBody, reactions, tags) => {
+    dispatchPostList({
+      type: "ADD_POST",
+      payload: {
+        id: Date.now(),
+        title: postTitle,
+        body: postBody,
+        reactions: 2,
+        userId: reactions,
+        tags: tags,
+      },
+    });
+  };
 
   const deletePost = (postId) => {
     dispatchPostList({
@@ -56,9 +65,9 @@ const PostListProvider = ({ children }) => {
   };
 
   return (
-    <PostList.Provider value={{ postList, addPost, deletePost }}>
+    <PostListData.Provider value={{ postList, addPost, deletePost }}>
       {children}
-    </PostList.Provider>
+    </PostListData.Provider>
   );
 };
 

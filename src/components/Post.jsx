@@ -1,10 +1,9 @@
 import { useContext } from "react";
 import { MdDelete } from "react-icons/md";
-import { PostList } from "../store/post-list-store";
-import PropTypes from "prop-types"; // ✅ Import PropTypes
+import { PostListData } from "../store/post-list-store";
 
 const Post = ({ post }) => {
-  const { deletePost } = useContext(PostList);
+  const { deletePost } = useContext(PostListData);
 
   return (
     <div
