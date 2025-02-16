@@ -30,8 +30,13 @@ export const PostList = createContext({
 
 // Reducer Function
 
-const postListReducer = (currPostList, action ) => {
-  return currPostList;
+const postListReducer = (currPostList, action) => {
+  let newPostList = currPostList;
+  if (action.type === "DELETE_POST")
+    newPostList = currPostList.filter(
+      (post) => post.id !== action.payload.postId
+    );
+  return newPostList;
 };
 
 // Provider Component
@@ -44,7 +49,6 @@ const PostListProvider = ({ children }) => {
   const addPost = () => {};
 
   const deletePost = (postId) => {
-    console.log("Deleting post with ID:", postId);
     dispatchPostList({
       type: "DELETE_POST",
       payload: { postId },
@@ -58,8 +62,8 @@ const PostListProvider = ({ children }) => {
   );
 };
 
-PostListProvider.propTypes = {
-  children: PropTypes.node.isRequired,
-};
+// PostListProvider.propTypes = {
+//   children: PropTypes.node.isRequired,
+// };
 
 export default PostListProvider;

@@ -41,15 +41,15 @@ const Post = ({ post }) => {
   );
 };
 
-// ✅ Add PropTypes for post validation
-Post.propTypes = {
-  post: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    body: PropTypes.string.isRequired,
-    reactions: PropTypes.number.isRequired,
-    tags: PropTypes.arrayOf(PropTypes.string).isRequired,
-  }).isRequired,
-};
+// // ✅ Add PropTypes for post validation
+// Post.propTypes = {
+//   post: PropTypes.shape({
+//     id: PropTypes.string.isRequired,
+//     title: PropTypes.string.isRequired,
+//     body: PropTypes.string.isRequired,
+//     reactions: PropTypes.number.isRequired,
+//     tags: PropTypes.arrayOf(PropTypes.string).isRequired,
+//   }).isRequired,
+// };
 
 export default Post;

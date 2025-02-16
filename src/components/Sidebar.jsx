@@ -119,10 +119,10 @@ const Slidebar = ({ selectedTab, setSelectedTab }) => {
   );
 };
 
-// ✅ Add PropTypes for validation
-Slidebar.propTypes = {
-  selectedTab: PropTypes.string.isRequired,
-  setSelectedTab: PropTypes.func.isRequired,
-};
+// // ✅ Add PropTypes for validation
+// Slidebar.propTypes = {
+//   selectedTab: PropTypes.string.isRequired,
+//   setSelectedTab: PropTypes.func.isRequired,
+// };
 
 export default Slidebar;
