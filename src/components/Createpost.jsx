@@ -3,6 +3,7 @@ import { PostListData } from "../store/post-list-store";
 
 const Createpost = () => {
   const { addPost } = useContext(PostListData);
+
   const userIdElement = useRef();
   const postTitleElement = useRef();
   const postBodyElement = useRef();
@@ -15,9 +16,11 @@ const Createpost = () => {
     const postTitle = postTitleElement.current.value;
     const postBody = postBodyElement.current.value;
     const reactions = reactionsElement.current.value;
-    const tags = tagsElement.current.value;
+    const tags = tagsElement.current.value.split(" ");
 
     addPost(userId, postTitle, postBody, reactions, tags);
+    
+    
   };
 
   return (
@@ -67,7 +70,7 @@ const Createpost = () => {
         <textarea
           rows="4"
           ref={postBodyElement}
-          type="content"
+          type="text"
           className="form-control"
           id="body"
           placeholder="Tell us about it"
@@ -110,7 +113,7 @@ const Createpost = () => {
         type="submit"
         className="btn btn-primary"
       >
-        Submit
+        Post
       </button>
     </form>
   );
