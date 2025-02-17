@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect } from "react";
 import Post from "../components/Post";
 import { PostListData } from "../store/post-list-store";
 import WelcomeMessage from "./WelcomeMessage";
@@ -6,18 +6,17 @@ import WelcomeMessage from "./WelcomeMessage";
 const PostList = () => {
   const { postList, addInitalPost } = useContext(PostListData);
 
-  //direct show the post when open the website
-  const [dataFetched, setdataFetched] = useState(false);
-  if (!dataFetched) {
+  useEffect(() => {
     fetch("https://dummyjson.com/posts")
       .then((res) => res.json())
       .then((data) => {
         addInitalPost(data.posts);
       });
-  } else {
-    setdataFetched(true);
-  }
+  }, []);
 
+  // useeffect is used for data fetching or event listeners
+  // first argument is function/method
+  //second [] - run initial render means no dependences
   return (
     <>
       {postList.length === 0 && <WelcomeMessage />}
