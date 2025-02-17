@@ -23,13 +23,18 @@
   margin: 15px 0 0 0;
 }
 
-.create-post{
+.create-post {
   margin-top: 10%;
   margin-left: 10%;
   width: 80%;
 }
 
-.welcome-error{
+.welcome-error {
   margin-top: 40px;
   margin-left: 40px;
+}
+
+.loading-spinner {
+  margin-top: 20%;
+  margin-left: 50%;
 }
