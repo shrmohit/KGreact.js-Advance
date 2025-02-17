@@ -17,6 +17,10 @@ const PostList = () => {
         addInitalPost(data.posts);
         setFetching(false);
       });
+
+    return () => {
+      console.log("Cleaning up UseEffect.");
+    };
   }, []);
 
   // useeffect is used for data fetching or event listeners
