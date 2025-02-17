@@ -33,22 +33,11 @@ const Post = ({ post }) => {
           className="alert alert-primary reaction"
           role="alert"
         >
-          This post has been reacted by {post.reactions}
+          This post has been reacted by {post.like},{post.dislike}
         </div>
       </div>
     </div>
   );
 };
-
-// // ✅ Add PropTypes for post validation
-// Post.propTypes = {
-//   post: PropTypes.shape({
-//     id: PropTypes.string.isRequired,
-//     title: PropTypes.string.isRequired,
-//     body: PropTypes.string.isRequired,
-//     reactions: PropTypes.number.isRequired,
-//     tags: PropTypes.arrayOf(PropTypes.string).isRequired,
-//   }).isRequired,
-// };
 
 export default Post;
