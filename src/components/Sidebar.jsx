@@ -1,5 +1,4 @@
-import PropTypes from "prop-types"; // ✅ Import PropTypes
-
+import { Link } from "react-router-dom";
 const Slidebar = ({ selectedTab, setSelectedTab }) => {
   return (
     <div
@@ -25,8 +24,8 @@ const Slidebar = ({ selectedTab, setSelectedTab }) => {
           className="nav-item"
           onClick={console.log("Home")}
         >
-          <a
-            href="/"
+          <Link
+            to="/postlist"
             className="nav-link text-white "
             aria-current="page"
           >
@@ -38,11 +37,11 @@ const Slidebar = ({ selectedTab, setSelectedTab }) => {
               <use xlinkHref="#home"></use>
             </svg>
             Home
-          </a>
+          </Link>
         </li>
         <li onClick={console.log("create post")}>
-          <a
-            href="/createpost"
+          <Link
+            to="/createpost"
             className="nav-link text-white "
           >
             <svg
@@ -53,7 +52,7 @@ const Slidebar = ({ selectedTab, setSelectedTab }) => {
               <use xlinkHref="#speedometer2"></use>
             </svg>
             Create Post
-          </a>
+          </Link>
         </li>
       </ul>
       <hr />

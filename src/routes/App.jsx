@@ -21,11 +21,7 @@ function App() {
         ></Slidebar>
         <div className="content">
           <Header></Header>
-          {/* {selectedTab === "Home" ? (
-            <PostList></PostList>
-          ) : (
-            <Createpost></Createpost>
-          )} */}
+
           <Outlet />
 
           <Footer></Footer>
