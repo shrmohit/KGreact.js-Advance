@@ -3,7 +3,7 @@ import { PostListData } from "../store/post-list-store";
 
 const Createpost = () => {
   const { addPost } = useContext(PostListData);
-
+  //reference set
   const userIdElement = useRef();
   const postTitleElement = useRef();
   const postBodyElement = useRef();
@@ -12,6 +12,7 @@ const Createpost = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    //value fetch
     const userId = userIdElement.current.value;
     const postTitle = postTitleElement.current.value;
     const postBody = postBodyElement.current.value;
@@ -19,7 +20,7 @@ const Createpost = () => {
     const tags = tagsElement.current.value.split(" ");
 
     addPost({ userId, postTitle, postBody, reactions, tags });
-
+    // value remove
     userIdElement.current.value = "";
     postTitleElement.current.value = "";
     postBodyElement.current.value = "";
