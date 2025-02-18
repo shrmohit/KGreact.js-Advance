@@ -23,13 +23,11 @@ const Slidebar = ({ selectedTab, setSelectedTab }) => {
       <ul className="nav nav-pills flex-column mb-auto">
         <li
           className="nav-item"
-          onClick={() => setSelectedTab("Home")}
+          onClick={console.log("Home")}
         >
           <a
-            href="#"
-            className={`nav-link text-white ${
-              selectedTab === "Home" ? "active" : ""
-            }`}
+            href="/"
+            className="nav-link text-white "
             aria-current="page"
           >
             <svg
@@ -42,12 +40,10 @@ const Slidebar = ({ selectedTab, setSelectedTab }) => {
             Home
           </a>
         </li>
-        <li onClick={() => setSelectedTab("Create Post")}>
+        <li onClick={console.log("create post")}>
           <a
-            href="#"
-            className={`nav-link text-white ${
-              selectedTab === "Create Post" ? "active" : ""
-            }`}
+            href="/createpost"
+            className="nav-link text-white "
           >
             <svg
               className="bi pe-none me-2"
