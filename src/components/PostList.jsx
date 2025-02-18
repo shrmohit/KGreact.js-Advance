@@ -18,11 +18,11 @@ const PostList = () => {
       .then((data) => {
         addInitalPost(data.posts);
         setFetching(false);
+        Navigate("/");
       });
 
     return () => {
       console.log("Cleaning up UseEffect.");
-      controller.abort();
     };
   }, []);
 

@@ -18,15 +18,14 @@ const Createpost = () => {
     const reactions = reactionsElement.current.value;
     const tags = tagsElement.current.value.split(" ");
 
-    userIdElement.current.value="";
-    postTitleElement.current.value="";
-    postBodyElement.current.value="";
-    reactionsElement.current.value="";
-    tagsElement.current.value="";
+    addPost({ userId, postTitle, postBody, reactions, tags });
 
-    addPost(userId, postTitle, postBody, reactions, tags);
-    
-  }; 
+    userIdElement.current.value = "";
+    postTitleElement.current.value = "";
+    postBodyElement.current.value = "";
+    reactionsElement.current.value = "";
+    tagsElement.current.value = "";
+  };
 
   return (
     <form
@@ -41,7 +40,7 @@ const Createpost = () => {
           Enter your userId
         </label>
         <input
-          type="email"
+          type="text"
           ref={userIdElement}
           className="form-control"
           id="userId"
